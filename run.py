@@ -66,3 +66,22 @@ def add_expense():
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return False
+
+def view_summary():
+    """
+    View a summary of expenses from Google Sheets.
+    """
+    try:
+        sheet = SHEET.get_worksheet(0)  # Access the first sheet
+        rows = sheet.get_all_values()
+
+        if not rows or len(rows) == 1:  # Checking if there are no expenses besides headers
+            print('No data found.')
+            return
+
+        for row in rows:
+            print(', '.join(row))
+    except gspread.exceptions.APIError as e:
+        print(f"An error occurred while communicating with Google Sheets: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
