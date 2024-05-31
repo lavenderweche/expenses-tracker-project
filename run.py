@@ -28,7 +28,7 @@ def add_expense():
         description = input("Enter the description of the expense: ").strip()
         category = input("Enter the category of the expense: ").strip()
         amount = input("Enter the amount spent: ").strip()
-        date = input("Enter the date of the expense (YYYY-MM-DD) or leave blank for today: ").strip()
+        date = input("Enter the date of the expense (DD-MM-YYYY) or leave blank for today: ").strip()
 
         # Validate description and category
         if not description:
@@ -47,12 +47,17 @@ def add_expense():
 
         # Validate and format date
         if not date:
-            date = datetime.datetime.now().strftime('%Y-%m-%d')
+            date = datetime.datetime.now().strftime('%d-%m-%Y')
         else:
             try:
-                date = parser.parse(date).strftime('%Y-%m-%d')
+                expense_date = datetime.datetime.strptime(date, '%d-%m-%Y')
+                current_date = datetime.datetime.now()
+                if expense_date > current_date:
+                    print("Error: Date cannot be in the future.")
+                    return False
+                date = expense_date.strftime('%d-%m-%Y')
             except ValueError:
-                print("Error: Invalid date format. Please use YYYY-MM-DD.")
+                print("Error: Invalid date format. Please use DD-MM-YYYY.")
                 return False
 
         if check_monthly_limit_exceeded(date, amount):
@@ -94,7 +99,7 @@ def check_monthly_limit_exceeded(date, new_amount):
     Check if adding an expense exceeds the monthly limit.
     
     Args:
-        date (str): The date of the expense in YYYY-MM-DD format.
+        date (str): The date of the expense in DD-MM-YYYY format.
         new_amount (float): The amount of the new expense.
     
     Returns:
@@ -107,13 +112,13 @@ def check_monthly_limit_exceeded(date, new_amount):
             return False
 
         # Calculate the total spending for the current month
-        current_month = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%Y-%m')
+        current_month = datetime.datetime.strptime(date, '%d-%m-%Y').strftime('%Y-%m')
         total_spent = 0
 
         for row in rows[1:]:  # Skip the header row
             row_date, _, _, row_amount = row
             try:
-                row_date_month = datetime.datetime.strptime(row_date, '%Y-%m-%d').strftime('%Y-%m')
+                row_date_month = datetime.datetime.strptime(row_date, '%d-%m-%Y').strftime('%Y-%m')
                 if row_date_month == current_month:
                     total_spent += float(row_amount)
             except ValueError:
@@ -126,6 +131,7 @@ def check_monthly_limit_exceeded(date, new_amount):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return False
+
 
 def main():
     """
