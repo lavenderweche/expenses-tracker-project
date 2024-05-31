@@ -1,1 +1,1 @@
-# Your requirements go here
+python-dateutil>=2.6<2.7
