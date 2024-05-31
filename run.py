@@ -123,3 +123,49 @@ def check_monthly_limit_exceeded(date, new_amount):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return False
+
+def main():
+    """
+    Command line interface for the expense tracker.
+    """
+    while True:
+        try:
+            print("\nExpense Tracker Menu:")
+            print("1. Add an expense")
+            print("2. View expenses summary")
+            print("3. Exit")
+            choice = input("Choose an option (1, 2, or 3): ").strip()
+
+            if choice == '1':
+                if add_expense():
+                    while True:
+                        another_entry = input("Would you like to add another entry? (yes/no): ").strip().lower()
+                        if another_entry == 'yes':
+                            if not add_expense():
+                                break
+                        elif another_entry == 'no':
+                            print("Thank you for using the tracker app.")
+                            return
+                        else:
+                            print("Invalid choice. Please enter 'yes' or 'no'.")
+            elif choice == '2':
+                view_summary()
+                while True:
+                    another_action = input("Would you like to perform another action? (yes/no): ").strip().lower()
+                    if another_action == 'yes':
+                        break
+                    elif another_action == 'no':
+                        print("Thank you for using the tracker app.")
+                        return
+                    else:
+                        print("Invalid choice. Please enter 'yes' or 'no'.")
+            elif choice == '3':
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please select 1, 2, or 3.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+
+if __name__ == '__main__':
+    main()
