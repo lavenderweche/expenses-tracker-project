@@ -85,3 +85,41 @@ def view_summary():
         print(f"An error occurred while communicating with Google Sheets: {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
+def check_monthly_limit_exceeded(date, new_amount):
+    """
+    Check if adding an expense exceeds the monthly limit.
+    
+    Args:
+        date (str): The date of the expense in YYYY-MM-DD format.
+        new_amount (float): The amount of the new expense.
+    
+    Returns:
+        bool: True if the monthly limit is exceeded, otherwise False.
+    """
+    try:
+        sheet = SHEET.get_worksheet(0)  # Access the first sheet
+        rows = sheet.get_all_values()
+        if not rows or len(rows) == 1:  # Checking if there are no expenses besides headers
+            return False
+
+        # Calculate the total spending for the current month
+        current_month = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%Y-%m')
+        total_spent = 0
+
+        for row in rows[1:]:  # Skip the header row
+            row_date, _, _, row_amount = row
+            try:
+                row_date_month = datetime.datetime.strptime(row_date, '%Y-%m-%d').strftime('%Y-%m')
+                if row_date_month == current_month:
+                    total_spent += float(row_amount)
+            except ValueError:
+                continue
+
+        return (total_spent + new_amount) > MONTHLY_LIMIT
+    except gspread.exceptions.APIError as e:
+        print(f"An error occurred while communicating with Google Sheets: {e}")
+        return False
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return False
