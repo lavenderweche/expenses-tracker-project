@@ -168,4 +168,5 @@ def main():
             print(f"An unexpected error occurred: {e}")
 
 if __name__ == '__main__':
+    print("Welcome to your expense tracker app.\n Here to help you manage your expenses.\nPlease enter 1, 2, or 3 to start.")
     main()
