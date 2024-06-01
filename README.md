@@ -37,11 +37,15 @@ The Expense Tracker App is a command-line application written in Python that all
 
 ## Usage of the Expenses Tracker App
 
-   
+- The code is added in the *run.py* file.
+- The dependencies must be placed in the `requirements.txt` file
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+On run of the app, there is an Expense Tracker menu:
+
+- Add an expense: Enter the details of your expense (description, category, amount, and date).
+  
+- View expenses summary: Display all recorded expenses.
+- Exit: Exit the application.
 
 ## Creating the Heroku app
 
