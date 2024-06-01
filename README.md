@@ -1,10 +1,43 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
+## Overview
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+The Expense Tracker App is a command-line application written in Python that allows users to track their expenses. It uses the Google Sheets API to store and retrieve expense data. Users can add new expenses, view a summary of their expenses, and ensure they do not exceed a set monthly spending limit.
 
-## Reminders
+## Features
+
+- Add Expense: Users can add a new expense with a description, category, amount, and date.
+- View Summary: Users can view all their recorded expenses.
+- Monthly Spending Limit: The app checks if the new expense will exceed the predefined monthly limit and notifies the user.
+
+## Prerequisites
+- Python 3
+- Google account with access to Google Sheets
+- Google Sheets API enabled
+- Service account credentials JSON file (creds.json)
+
+# How it was done
+## The Set Up
+1. Used the Code Institute Template (https://github.com/Code-Institute-Org/p3-template) when creating the repository.
+   ![image](https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/64778c0f-1ba4-4c56-ba93-6bfc92259fb4)
+   
+2. Set up the Google Sheets and Google Drive API through the Google cloud platform as shown in the Love Sandwiches module which included:
+   
+   Creating a project in the Google Developers Console and enable the Google Drive and Google Sheets API.
+   
+   Create a service account and download the JSON credentials file.
+   
+   Share your Google Sheet with the service account email.
+   
+3. Set up Google Sheets document
+
+   Create a new Google Sheet named expense_tracker.
+
+   Set up the first worksheet with the following headers in the first row: **Date, Description, Category, Amount.**
+
+## Usage of the Expenses Tracker App
+
+   
 
 - Your code must be placed in the `run.py` file
 - Your dependencies must be placed in the `requirements.txt` file
