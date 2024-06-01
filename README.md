@@ -43,7 +43,8 @@ The Expense Tracker App is a command-line application written in Python that all
 On run of the app, there is an Expense Tracker menu:
 
 - Add an expense: Enter the details of your expense (description, category, amount, and date).
-  
+  <img width="1440" alt="image" src="https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/d50a19de-a293-4e15-b08b-99e68b29e22e">
+
 - View expenses summary: Display all recorded expenses.
 - Exit: Exit the application.
 
