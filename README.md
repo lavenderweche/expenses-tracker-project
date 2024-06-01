@@ -43,28 +43,51 @@ The Expense Tracker App is a command-line application written in Python that all
 On run of the app, there is an Expense Tracker menu:
 
 - Add an expense: Enter the details of your expense (description, category, amount, and date).
-  <img width="1440" alt="image" src="https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/d50a19de-a293-4e15-b08b-99e68b29e22e">
 
+Enter the description, category, amount, and date (in DD-MM-YYYY format) of the expense.
+
+If the date is left blank, it defaults to today's date.
+
+The app validates the inputs and checks if the expense will exceed the monthly limit.
+
+  <img width="1440" alt="image" src="https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/d50a19de-a293-4e15-b08b-99e68b29e22e">
+  
 - View expenses summary: Display all recorded expenses.
+
+Displays all recorded expenses in the console.
+
+  <img width="1440" alt="image" src="https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/3f8918d7-00bd-4743-a5d9-ac291b7b45e2">
+  
 - Exit: Exit the application.
+  <img width="1440" alt="image" src="https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/e35fbf9e-ca4d-42d0-8e23-8984616abc14">
+
 
 ## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+When creating the app, as shown in the course deployment module video, I added two buildpacks from the _Settings_ tab. The ordering is as follows:
 
 1. `heroku/python`
 2. `heroku/nodejs`
+   ![image](https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/92d52648-7dc1-4e71-bf84-151fd8876346)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Afterwards, created a _Config Var_ called `PORT`. Set this to `8000`
 
-Connect your GitHub repository and deploy as normal.
+Another _Config Var_ called `CREDS` was added and pasted the JSON into the value field.
 
-## Constraints
+![image](https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/011fcdbe-221d-4859-94c6-6e08fc0ffe8e)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+Connect your GitHub repository and deploy as normal. In this project, I used the manual deployment option but would look into using the automated featur4e for future projects.
+![image](https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/90e15f49-fa0e-4aca-9672-858564c6e7c9)
 
----
 
-Happy coding!
+
+## Future Features
+To make the app more interactive, for now the app is very simple and only does entry and viewing of the details. However, in future, I would like to include more features like having the user define their monthly expenses and if the user enters something that is not in the list, they are notified. 
+
+## Encountered Issues
+- I initially had done the same project in a different repository but during deployment, an error that there were missing modules kept appearing even after installing the app. Therefore, I decided to start overe with a new repository, I did things the same way and the second time, the deployment was successful.
+- I forgot to add the gspread and datetime packages in the requirements document and was therefore getting an error. This was fixed by including them in the *requirements.txt* file.
+- Some of the validations were not workig as expected, this required troubleshpoting and also looking up solutions on Google. 
+
+
