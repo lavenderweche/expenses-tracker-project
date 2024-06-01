@@ -1,4 +1,21 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+  * [Overview](#overview)
+  * [Features](#features)
+  * [Prerequisites](#prerequisites)
+- [How it was done](#how-it-was-done)
+  * [The Set Up](#the-set-up)
+  * [Usage of the Expenses Tracker App](#usage-of-the-expenses-tracker-app)
+  * [Creating the Heroku app](#creating-the-heroku-app)
+  * [Future Features](#future-features)
+  * [Encountered Issues](#encountered-issues)
+- [Tutorials and Guides used](#tutorials-and-guides-used)
+  * [Real Python](#real-python)
+  * [W3Schools Python Tutorial](#w3schools-python-tutorial)
+  * [Stack Overflow](#stack-overflow)
+  * [Code Institute Python module materials](#code-institute-python-module-materials)
+  * [Python.org Community](#pythonorg-community)
+  * [Youtube videos](#youtube-videos)
+- [Demo](#demo)
 
 ## Overview
 
@@ -83,11 +100,48 @@ Connect your GitHub repository and deploy as normal. In this project, I used the
 
 
 ## Future Features
-To make the app more interactive, for now the app is very simple and only does entry and viewing of the details. However, in future, I would like to include more features like having the user define their monthly expenses and if the user enters something that is not in the list, they are notified. 
+- To make the app more interactive, for now the app is very simple and only does entry and viewing of the details. However, in future, I would like to include more features like having the user define their monthly expenses and if the user enters something that is not in the list, they are notified.
+- Check for duplicates
+- Add the currency for the money used
+
 
 ## Encountered Issues
 - I initially had done the same project in a different repository but during deployment, an error that there were missing modules kept appearing even after installing the app. Therefore, I decided to start overe with a new repository, I did things the same way and the second time, the deployment was successful.
 - I forgot to add the gspread and datetime packages in the requirements document and was therefore getting an error. This was fixed by including them in the *requirements.txt* file.
 - Some of the validations were not workig as expected, this required troubleshpoting and also looking up solutions on Google. 
+
+# Tutorials and Guides used
+## Real Python
+
+Offers a wide range of Python tutorials, including guides on working with APIs, data handling, and various Python libraries.
+## W3Schools Python Tutorial
+
+A beginner-friendly resource for learning Python programming concepts and syntax.
+## Stack Overflow
+
+A valuable community-driven Q&A site where developers can find solutions to a wide variety of programming challenges and issues.
+## Code Institute Python module materials
+The content provided by code institute during the course has been really helpful and I used most of it for the development of this project. 
+
+## Reddit
+
+A helpful community where Python learners and developers share tips, ask questions, and discuss best practices.
+## Python.org Community
+
+Provides access to Python-related mailing lists, forums, and special interest groups for connecting with other Python developers.
+## Youtube videos
+
+There were very many youtube videos that helped in troubleshooting problems and in also understanding some concepts which in turn maded it possible for me to build the app. 
+
+https://www.youtube.com/watch?v=HTD86h69PtE
+
+
+https://www.youtube.com/watch?v=xV0B1Y0tem0
+
+
+# Demo
+
+
+https://github.com/lavenderweche/expenses-tracker-project/assets/30617453/aa8d1d7b-76eb-48af-9807-b20e2c007810
 
 
